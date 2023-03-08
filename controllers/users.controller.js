@@ -48,3 +48,41 @@ module.exports.saveAuser=async(req,res)=>{
     }
   
 }
+
+module.exports.deleteAUser=async(req,res)=>{
+    try {
+        const id = req.params.id
+        console.log(id)
+        await Users.deleteOne({_id:id})
+        res.send({message:'user is deleted'})
+    } catch (error) {
+        res.status(401).send(error.message)
+    }
+}
+
+
+module.exports.updateAUser=async(req,res)=>{
+    try {
+        const user = await Users.findOne({_id:req.params.id})
+        user.name=req.body.name,
+        user.gender=req.body.gender,
+        user.contact=req.body.phone,
+        user.address=req.body.address,
+        user.photoUrl=req.body.picture
+        // const newUser = new Users({
+        //     name:req.body.name,
+        //     gender:req.body.gender,
+        //     contact:req.body.phone,
+        //     address:req.body.address,
+        //     photoUrl:req.body.picture
+        // });
+        // if(!newUser || !req.body.name || !req.body.gender || !req.body.phone || !req.body.address || !req.body.picture){
+        //     res.status(401).send({message:'no empty field is acceptable'})
+        // }
+        await user.save()
+        res.send(user)
+
+    } catch (error) {
+        res.send({message:'error'})
+    }
+}
