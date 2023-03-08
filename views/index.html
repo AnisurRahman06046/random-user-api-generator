@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <h1 class="text-center text-blue-900 text-3xl font-bold mt-10">Welcome to Random User Generator</h1>
+    <ul class="list-disc text-center text-2xl text-blue-900 ">
+        <li>
+            @GET-https://assignment-randomuser-generator.vercel.app /user/random : to get a random user
+        </li>
+        <li>
+            @GET-https://assignment-randomuser-generator.vercel.app /user/all?limit=2 - to get a limited number of user
+        </li>
+        <li>
+            @GET- https://assignment-randomuser-generator.vercel.app /user/all - to get all the users
+        </li>
+        <li>
+            @POST-https://assignment-randomuser-generator.vercel.app /user/save : to save a user in db
+        </li>
+        <li>
+            @DELETE-https://assignment-randomuser-generator.vercel.app /user/delete/${id} - to delete a user
+        </li>
+        <li>
+            @PATCH- https://assignment-randomuser-generator.vercel.app /user/update/${id} - to update a user
+        </li>
+    
+      </ul>
+
+</body>
+</html>
