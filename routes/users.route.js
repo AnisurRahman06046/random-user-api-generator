@@ -2,6 +2,7 @@ const express = require("express");
 const {
   getRandomUser,
   getAllRandomUsers,
+  saveAuser,
 } = require("../controllers/users.controller");
 const router = express.Router();
 
@@ -11,10 +12,17 @@ router
    */
   .get("/user/random", getRandomUser)
 
+  
   /***
    * @GET-http://localhost:5000/user/all?limit=2 - to get a limited number of user
    * @GET- http://localhost:5000/user/all - to get all the users
    */
-  .get("/user/all", getAllRandomUsers);
+  .get("/user/all", getAllRandomUsers)
+
+
+  /***
+   * @POST-http://localhost:5000/user/save : to save a user in db
+   */
+  .post('/user/save',saveAuser)
 
 module.exports = router;
